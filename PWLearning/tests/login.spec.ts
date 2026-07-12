@@ -6,7 +6,7 @@ import { config } from '../config/config';
 
 //import { DashboardPage } from '../pages/DashboardPage';
  
-test('Verify User can login successfully', async ({ page }) => {
+test('Verify User can login successfully and check Dashboard is loaded', async ({ page }) => {
  
     const loginpage = new LoginPage(page);
     const dashboardPage = new DashboardPage(page);
