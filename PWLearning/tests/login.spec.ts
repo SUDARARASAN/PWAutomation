@@ -4,7 +4,7 @@ import { LoginPage } from '../pages/LoginPage';
 import {DashboardPage} from '../pages/DashboardPage'
 import { config } from '../config/config';
 
-test('Verify User can login successfully', async ({ page }) => {
+test('Verify User can login successfully and Able to View the Dashboard', async ({ page }) => {
  
     const loginpage = new LoginPage(page);
     const dashboardPage = new DashboardPage(page);
