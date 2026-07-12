@@ -29,16 +29,18 @@ export class LoginPage {
     async navigate() {
         await this.page.goto(config.baseUrl);
     }
- 
-    async login(user: string, pass: string) {
-        await this.username.fill("user");
-        await this.password.fill("pass");
-        await this.signIn.click();
-    }
- 
+
     async verifyLoginPageLoaded() {
         await expect(this.username).toBeVisible();
         await expect(this.password).toBeVisible();
         await expect(this.signIn).toBeVisible();
     }
+ 
+    async login(user: string, pass: string) {
+        await this.username.fill(config.username);
+        await this.password.fill(config.password);
+        await this.signIn.click();
+    }
+ 
+    
 }
