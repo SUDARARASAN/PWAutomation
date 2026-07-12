@@ -1,18 +1,24 @@
+//login.spec.ts
 import { test } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-import { DashboardPage } from '../pages/DashboardPage';
+import {DashboardPage} from '../pages/DashboardPage'
+import { config } from '../config/config';
+
+//import { DashboardPage } from '../pages/DashboardPage';
  
-test('User can login successfully', async ({ page }) => {
+test('Verify User can login successfully', async ({ page }) => {
  
-    const login = new LoginPage(page);
-    const dashboard = new DashboardPage(page);
+    const loginpage = new LoginPage(page);
+    const dashboardPage = new DashboardPage(page);
  
-    await login.navigate();
+    await loginpage.navigate();
  
-    await login.verifyLoginPageLoaded();
+    await loginpage.verifyLoginPageLoaded();
  
-    await login.login('name', 'pass');
+    await loginpage.login(config.username, config.password);
  
-    await dashboard.verifyDashboardLoaded();
+    await dashboardPage.verifyDashboardLoaded();
+
+    await dashboardPage.verifyLoggedInUser(config.displayName);
  
 });

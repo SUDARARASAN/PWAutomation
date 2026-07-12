@@ -1,4 +1,7 @@
+//LoginPage.ts
+
 import { Page, Locator, expect } from '@playwright/test';
+import { config } from '../config/config';
  
 export class LoginPage {
  
@@ -24,12 +27,12 @@ export class LoginPage {
     }
  
     async navigate() {
-        await this.page.goto('https://www.prudentplus.in');
+        await this.page.goto(config.baseUrl);
     }
  
     async login(user: string, pass: string) {
-        await this.username.fill(user);
-        await this.password.fill(pass);
+        await this.username.fill("user");
+        await this.password.fill("pass");
         await this.signIn.click();
     }
  

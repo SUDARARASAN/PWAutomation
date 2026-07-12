@@ -1,3 +1,4 @@
+//DashboardPage.ts
 import { expect, Page } from '@playwright/test';
  
 export class DashboardPage {
@@ -5,9 +6,11 @@ export class DashboardPage {
     constructor(private page: Page) {}
  
     async verifyDashboardLoaded() {
+        await expect(this.page).toHaveURL("https://www.prudentplus.in/dashboard/home");
+    }
  
-        await expect(this.page).toHaveURL(/dashboard/);
- 
+    async verifyLoggedInUser(userName: string) {
+        await expect(this.page.getByText(userName)).toBeVisible();
     }
  
 }
